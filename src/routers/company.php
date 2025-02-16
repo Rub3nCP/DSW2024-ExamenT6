@@ -16,3 +16,4 @@ $router->map('POST', '/products', 'ProductsController#createNewProduct');
 $router->map('GET', '/orders', 'OrdersController#index');
 $router->map('GET', '/orders/details/[i:id]', 'OrdersController#showDetails');
 $router->map('GET', '/orders/add/[i:id]', 'OrdersController#showNewOrder');
+$router->map('POST', '/orders/save', 'OrdersController#saveOrder', 'orders.save');
