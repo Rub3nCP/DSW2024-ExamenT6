@@ -15,7 +15,6 @@
   </div>
 
   <table>
-    <!-- cabecera -->
     <thead>
       <tr>
         <th>ID</th>
@@ -27,7 +26,6 @@
 
       </tr>
     </thead>
-    <!-- cuerpo -->
     <tbody>
     @foreach($ordersDetailInfo as $detailedOrder)
       <tr>    

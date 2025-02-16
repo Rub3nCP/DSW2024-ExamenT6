@@ -13,7 +13,7 @@ class OrdersImplement
 
   public function __construct()
   {
-    $this->db = new Database(); // Aquí inicializas la instancia de Database.
+    $this->db = new Database(); 
   }
 
   public function findAll(): array
@@ -50,22 +50,20 @@ class OrdersImplement
       );
       $orders[] = $order;
     }
-    return $orders[0]; // Retornamos el primer pedido.
+    return $orders[0]; 
   }
 
   public function createOrder($companyId)
 {
-    // Asegúrate de que el nombre de la columna es 'order_date'
     $stmt = $this->db->getConnection()->prepare("INSERT INTO orders (company_id, order_date) VALUES (?, NOW())");
-    $stmt->execute([$companyId]); // Inserta el ID de la empresa y la fecha actual (NOW())
-    return $this->db->getConnection()->lastInsertId(); // Retorna el último ID insertado
+    $stmt->execute([$companyId]); 
+    return $this->db->getConnection()->lastInsertId(); 
 }
 
   public function addProductToOrder($orderId, $productId, $cantidad)
   {
-    // Usamos la instancia de Database para obtener la conexión
     $stmt = $this->db->getConnection()->prepare("INSERT INTO order_products (order_id, product_id, quantity, price)
-                          SELECT ?, ?, ?, price FROM products WHERE id = ?");
+    SELECT ?, ?, ?, price FROM products WHERE id = ?");
     $stmt->execute([$orderId, $productId, $cantidad, $productId]);
   }
 }

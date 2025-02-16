@@ -34,7 +34,6 @@
   <input type="reset" class="success">
 </form>
 
-
 @else
 <h2>No hay productos para esta empresa</h2>
 @endif

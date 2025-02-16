@@ -10,7 +10,6 @@
   @if( count($orders) )
   <h2>Listado de pedidos</h2>
   <table>
-    <!-- cabecera -->
     <thead>
       <tr>
         <th>ID</th>
@@ -19,7 +18,6 @@
         <th>Acciones</th>
       </tr>
     </thead>
-    <!-- cuerpo -->
     <tbody>
     @foreach($orders as $order)
       <tr>    

@@ -19,13 +19,9 @@
   </div>
 </form>
 
-
-<!-- listado de empresas -->
-
   @if( count($companies) )
   <h2>Listado de empresas</h2>
   <table>
-    <!-- cabecera -->
     <thead>
       <tr>
         <th>ID</th>
@@ -34,7 +30,6 @@
         <th>Acciones</th>
       </tr>
     </thead>
-    <!-- cuerpo -->
     <tbody>
     @foreach($companies as $company)
       <tr>    
@@ -49,7 +44,6 @@
             <input type="submit" value="Borrar" class="alert">
           </form>
           <a href="/orders/add/{{ $company->getId() }}"><button  class="success">Hacer pedido</button></a>
-
         </td>
     </tr>
     @endforeach

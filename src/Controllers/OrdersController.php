@@ -42,20 +42,17 @@ class OrdersController extends Controller
 
   public function saveOrder($params)
 {
-    $companyId = $_POST['company_id']; // Asegúrate de que el formulario envía este dato
+    $companyId = $_POST['company_id']; 
     $orderDAO = new OrdersImplement();
     
-    // Crear un nuevo pedido y obtener su ID
     $orderId = $orderDAO->createOrder($companyId);
 
-    // Agregar productos al pedido
     foreach ($_POST['products'] as $productId => $cantidad) {
         if ($cantidad > 0) {
             $orderDAO->addProductToOrder($orderId, $productId, $cantidad);
         }
     }
 
-    // Redirigir a la página de detalles del pedido
     header("Location: /orders/details/$orderId");
     exit();
 }

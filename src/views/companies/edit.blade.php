@@ -4,8 +4,6 @@
 
 @section('content')
 
-<!-- formulario -->
-
 <form class="warning" action="/companies/{{$companyToEdit->getId()}}" method="POST">
   <input type="hidden" name="_method" value="put">
   <legend>Modificar Empresa</legend>
@@ -21,12 +19,9 @@
   </div>
 </form>
 
-<!-- listado de empresas -->
-
   @if( count($companies) )
   <h2>Listado de empresas</h2>
   <table>
-    <!-- cabecera -->
     <thead>
       <tr>
         <th>ID</th>
@@ -35,7 +30,6 @@
         <th>Acciones</th>
       </tr>
     </thead>
-    <!-- cuerpo -->
     <tbody>
     @foreach($companies as $company)
       <tr>    
