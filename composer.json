@@ -1,0 +1,25 @@
+{
+    "name": "ruben/examen6",
+    "description": "ExamenT6-DSW",
+    "type": "project",
+    "require": {
+        "altorouter/altorouter": "^2.0",
+        "philo/laravel-blade": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ruben\\Examen6\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rub3nCP",
+            "email": "rubenchedas12@gmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
+}
