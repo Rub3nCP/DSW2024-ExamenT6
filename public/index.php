@@ -12,14 +12,8 @@ $views = '../src/views';
 $cache = '../cache';
 $blade = new Blade($views, $cache);
 
-// echo $blade->view()->make('index')->render();
-
 include('../src/routers/company.php');
 
-
-// $router->map('GET', '/companies', 'CompanyController#index', 'company-index');
-
-// echo $blade->view()->make('companies.index')->render();
 
 if (isset($_POST['_method'])) {
   $_SERVER['REQUEST_METHOD'] = $_POST['_method'];
@@ -41,6 +35,5 @@ if (is_array($match)) {
     $controller->$action($match['params']);
   }
 } else {
-  // no route was matched
   header($_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }
