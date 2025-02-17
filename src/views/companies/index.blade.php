@@ -4,9 +4,7 @@
 
 @section('content')
 
-
 <!-- formulario -->
-
 <form action="/companies" method="post">
   <legend>Nueva Empresa</legend>
   <label for="name">Nombre: </label>
@@ -34,15 +32,21 @@
     @foreach($companies as $company)
       <tr>    
         <td>{{ $company->getId() }}</td>
+        <!-- Enlace con el nombre de la empresa que lleva a la lista de productos de esa empresa -->
         <td><a href="/products/{{ $company->getId() }}">{{ $company->getName() }}</a></td>
         <td>{{ $company->getContactInfo()}}</td>
         <td>
-
+          
+          <!-- Enlace para editar la empresa -->
           <a href="/companies/{{ $company->getId() }}/edit"><button  class="warning">Editar</button></a>
+          
+          <!-- Formulario para borrar la empresa -->
           <form class="frmBtn inline" action="/companies/{{  $company->getId() }}" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Borrar" class="alert">
           </form>
+          
+          <!-- Enlace para hacer un pedido relacionado con la empresa -->
           <a href="/orders/add/{{ $company->getId() }}"><button  class="success">Hacer pedido</button></a>
         </td>
     </tr>

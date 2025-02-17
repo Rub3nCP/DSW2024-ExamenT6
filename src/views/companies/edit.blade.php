@@ -5,6 +5,7 @@
 @section('content')
 
 <form class="warning" action="/companies/{{$companyToEdit->getId()}}" method="POST">
+  <!-- Actualización -->
   <input type="hidden" name="_method" value="put">
   <legend>Modificar Empresa</legend>
   <label for="name">Nombre:</label>
@@ -18,7 +19,7 @@
       <a href="/companies" class="button">Descartar</a>
   </div>
 </form>
-
+<!-- Si hay empresas disponibles, mostramos una lista en una tabla -->
   @if( count($companies) )
   <h2>Listado de empresas</h2>
   <table>
@@ -39,6 +40,7 @@
         <td>
 
           <a href="/companies/{{ $company->getId() }}/edit"><button  class="warning">Editar</button></a>
+          <!-- Formulario para borrar la empresa -->
           <form class="frmBtn inline" action="/companies/{{  $company->getId() }}" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Borrar" class="alert">

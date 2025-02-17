@@ -5,7 +5,7 @@
 @section('content')
 
 
-<!-- listado de orderos -->
+<!-- Lista de pedidos -->
 
   @if( count($orders) )
   <h2>Listado de pedidos</h2>
@@ -24,8 +24,8 @@
         <td>{{ $order->getId() }}</td>
         <td>{{ $order->getOrder_date() }}</td>
         <td>{{ $order->getCompanyId()}}</td>
-        <td><a href="/orders/details/{{ $order->getId() }}">Detalle</a></td>
-        
+        <!-- Enlace para ver los detalles de este pedido -->
+        <td><a href="/orders/details/{{ $order->getId() }}">Detalles</a></td>
     </tr>
     @endforeach
     </tbody>

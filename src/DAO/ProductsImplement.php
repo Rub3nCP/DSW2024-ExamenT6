@@ -90,23 +90,4 @@ class ProductsImplement
 
     $stmt->execute();
   }
-  // public function findProductsByCompanyId(int $id)
-  // {
-  //   $query = 'SELECT id, name, price FROM products INNER JOIN companies ON products.id = companies.id WHERE companies.company_id = :company_id';
-  //   $stmt = $this->db->getConnection()->prepare($query);
-  //   $stmt->bindParam(':id_group', $id);
-  //   $stmt->execute();
-  //   $products = [];
-  //   while ($productRecord = $stmt->fetch(PDO::FETCH_ASSOC)) {
-  //     $product = new Products(
-  //       $productRecord['id'],
-  //       $productRecord['name'],
-  //       "",
-  //       $productRecord['price'],
-  //       "",
-  //     );
-  //     $products[] = $product;
-  //   }
-  //   return $products;
-  // }
 }

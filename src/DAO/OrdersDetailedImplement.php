@@ -22,6 +22,7 @@ class OrdersDetailedImplement
     $stmt->execute();
 
     $orders = [];
+    // Recorre los resultados y crea objetos OrderDetails
     while ($orderRecord = $stmt->fetch(PDO::FETCH_ASSOC)) {
       $order = new OrderDetails(
         $orderRecord['id'],

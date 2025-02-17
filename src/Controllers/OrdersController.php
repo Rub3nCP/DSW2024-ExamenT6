@@ -9,6 +9,7 @@ use Ruben\Examen6\Dao\ProductsImplement;
 class OrdersController extends Controller
 {
 
+  //Solicitudes e instancias de la base de datos.
   public function index()
   {
     $orderDAO = new OrdersImplement();
@@ -24,8 +25,8 @@ class OrdersController extends Controller
     $orderDetailsDAO = new OrdersDetailedImplement();
     $ordersDetailInfo = $orderDetailsDAO->findById($id);
 
+     // Calculamos el total del pedido sumando los subtotales de cada detalle.
     $total = 0;
-
     foreach ($ordersDetailInfo as $detailedOrder) {
       $total += $detailedOrder->getSub();
     }
@@ -47,6 +48,7 @@ class OrdersController extends Controller
     
     $orderId = $orderDAO->createOrder($companyId);
 
+    // Añadimos los productos seleccionados al pedido
     foreach ($_POST['products'] as $productId => $cantidad) {
         if ($cantidad > 0) {
             $orderDAO->addProductToOrder($orderId, $productId, $cantidad);

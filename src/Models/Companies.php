@@ -32,9 +32,4 @@ class Companies
   {
     return $this->contact_info;
   }
-
-  // public function users() {
-  //   $userDAO = new UserImplement();
-  //   return $userDAO->findUsersByGroupId($this->id);
-  // }
 }

@@ -3,12 +3,11 @@
 <?php $__env->startSection('content'); ?>
 
 
-<!-- listado de orderos -->
+<!-- Lista de pedidos -->
 
   <?php if( count($orders) ): ?>
   <h2>Listado de pedidos</h2>
   <table>
-    <!-- cabecera -->
     <thead>
       <tr>
         <th>ID</th>
@@ -17,15 +16,14 @@
         <th>Acciones</th>
       </tr>
     </thead>
-    <!-- cuerpo -->
     <tbody>
     <?php $__currentLoopData = $orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <tr>    
         <td><?php echo e($order->getId()); ?></td>
         <td><?php echo e($order->getOrder_date()); ?></td>
         <td><?php echo e($order->getCompanyId()); ?></td>
-        <td><a href="/orders/details/<?php echo e($order->getId()); ?>">Detalle</a></td>
-        
+        <!-- Enlace para ver los detalles de este pedido -->
+        <td><a href="/orders/details/<?php echo e($order->getId()); ?>">Detalles</a></td>
     </tr>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </tbody>

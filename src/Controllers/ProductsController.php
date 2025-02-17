@@ -15,6 +15,8 @@ class ProductsController extends Controller
     $products = $productDao->findAll();
     echo $this->blade->view()->make('products.index', compact('products'))->render();
   }
+
+  //Mostrar los productos de una empresa específica
   public function showByCompanyId($param)
   {
 
@@ -40,6 +42,7 @@ class ProductsController extends Controller
   public function createNewProduct()
   {
     $productDao = new ProductsImplement();
+    // Crear un nuevo producto en la base de datos usando los datos del formulario
     $products = $productDao->create($_POST['name'], $_POST['product_description'], $_POST['product_price'], $_POST['company_selected']);
     $this->index();
   }

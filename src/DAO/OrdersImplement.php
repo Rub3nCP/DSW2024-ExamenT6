@@ -23,6 +23,8 @@ class OrdersImplement
     $stmt->execute();
 
     $orders = [];
+
+     // Recorre los resultados y crea objetos Orders
     while ($orderRecord = $stmt->fetch(PDO::FETCH_ASSOC)) {
       $order = new Orders(
         $orderRecord['id'],
@@ -55,6 +57,7 @@ class OrdersImplement
 
   public function createOrder($companyId)
 {
+    // Prepara la consulta SQL para insertar un nuevo pedido con la fecha actual
     $stmt = $this->db->getConnection()->prepare("INSERT INTO orders (company_id, order_date) VALUES (?, NOW())");
     $stmt->execute([$companyId]); 
     return $this->db->getConnection()->lastInsertId(); 
@@ -62,6 +65,7 @@ class OrdersImplement
 
   public function addProductToOrder($orderId, $productId, $cantidad)
   {
+    // Inserta un producto en la tabla `order_products` y obtiene su precio de la tabla `products`
     $stmt = $this->db->getConnection()->prepare("INSERT INTO order_products (order_id, product_id, quantity, price)
     SELECT ?, ?, ?, price FROM products WHERE id = ?");
     $stmt->execute([$orderId, $productId, $cantidad, $productId]);

@@ -18,10 +18,11 @@ class CompanyImplement
 
   public function findAll(): array
   {
-    $query = 'SELECT * FROM `companies`';
-    $stmt = $this->db->getConnection()->prepare($query);
-    $stmt->execute();
-    $companies = [];
+    $query = 'SELECT * FROM `companies`'; //Defino la consulta
+    $stmt = $this->db->getConnection()->prepare($query); //Preparo la consulta
+    $stmt->execute(); //Ejecuto la consulta
+    $companies = []; //Creo un array vacío para almcenar los objetos de empresas
+    
     while ($companyRecord = $stmt->fetch(PDO::FETCH_ASSOC)) {
       $company = new Companies(
         $companyRecord['id'],
@@ -36,17 +37,18 @@ class CompanyImplement
   {
     $query = 'SELECT * FROM `companies` WHERE id LIKE :id';
     $stmt = $this->db->getConnection()->prepare($query);
-    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':id', $id); //Buscar por ID
     $stmt->execute();
+    
     while ($companyRecord = $stmt->fetch(PDO::FETCH_ASSOC)) {
       $company = new Companies(
         $companyRecord['id'],
         $companyRecord['name'],
         $companyRecord['contact_info'],
       );
-      $companies[] = $company;
+      $companies[] = $company; 
     }
-    return $companies[0];
+    return $companies[0]; // Devuelve la primera empresa encontrada
   }
 
   public function create(string $name, string $contactInfo)
@@ -69,6 +71,7 @@ class CompanyImplement
   {
     $query = "UPDATE companies SET name = :name, contact_info = :contact_info WHERE id LIKE :id";
     $stmt = $this->db->getConnection()->prepare($query);
+    //Asignamos los valores a los parámetros
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':contact_info', $contactInfo);
     $stmt->bindParam(':id', $id);
