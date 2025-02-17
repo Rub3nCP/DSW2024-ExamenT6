@@ -2,9 +2,8 @@
 
 <?php $__env->startSection('content'); ?>
 
-<!-- formulario -->
-
 <form class="warning" action="/companies/<?php echo e($companyToEdit->getId()); ?>" method="POST">
+  <!-- Actualización -->
   <input type="hidden" name="_method" value="put">
   <legend>Modificar Empresa</legend>
   <label for="name">Nombre:</label>
@@ -18,13 +17,10 @@
       <a href="/companies" class="button">Descartar</a>
   </div>
 </form>
-
-<!-- listado de empresas -->
-
+<!-- Si hay empresas disponibles, mostramos una lista en una tabla -->
   <?php if( count($companies) ): ?>
   <h2>Listado de empresas</h2>
   <table>
-    <!-- cabecera -->
     <thead>
       <tr>
         <th>ID</th>
@@ -33,7 +29,6 @@
         <th>Acciones</th>
       </tr>
     </thead>
-    <!-- cuerpo -->
     <tbody>
     <?php $__currentLoopData = $companies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $company): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <tr>    
@@ -43,6 +38,7 @@
         <td>
 
           <a href="/companies/<?php echo e($company->getId()); ?>/edit"><button  class="warning">Editar</button></a>
+          <!-- Formulario para borrar la empresa -->
           <form class="frmBtn inline" action="/companies/<?php echo e($company->getId()); ?>" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Borrar" class="alert">

@@ -3,7 +3,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 
 use Philo\Blade\Blade;
 
-require '../vendor/autoload.php';
+require '../vendor/autoload.php'; //Cargar las instancias
 $pathController = "Ruben\\Examen6\\Controllers\\";
 
 $router = new AltoRouter();

@@ -36,6 +36,8 @@ class OrdersDetailedImplement
     }
     return $orders;
   }
+  
+  // Buscar detalles de pedidos por ID de pedido
   public function findById($id): array
   {
     $query = 'SELECT * FROM `order_details` WHERE order_id LIKE :id';

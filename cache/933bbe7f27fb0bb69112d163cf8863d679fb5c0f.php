@@ -13,7 +13,6 @@
   </div>
 
   <table>
-    <!-- cabecera -->
     <thead>
       <tr>
         <th>ID</th>
@@ -25,7 +24,6 @@
 
       </tr>
     </thead>
-    <!-- cuerpo -->
     <tbody>
     <?php $__currentLoopData = $ordersDetailInfo; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detailedOrder): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <tr>    

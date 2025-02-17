@@ -56,10 +56,8 @@ class ProductsImplement
     }
     return $products;
   }
-  public function getInfoById($id)  //No es eficiente pero solo tengo que copiar pegar y añadir un 0 :)
+  public function getInfoById($id)  
   {
-    //$query = 'SELECT * FROM products INNER JOIN companies ON products.company_id = group_user.id_user WHERE group_user.id_group = :id_group';
-
     $query = 'SELECT * FROM `products` WHERE id LIKE :id';
     $stmt = $this->db->getConnection()->prepare($query);
     $stmt->bindParam(':id', $id);
