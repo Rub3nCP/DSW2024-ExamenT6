@@ -6,7 +6,7 @@ use  Ruben\Examen6\Dao\CompanyImplement;
 
 class CompanyController extends Controller
 {
-
+  //Solicitudes e instancias de la base de datos.
   public function index()
   {
     $companyDAO = new CompanyImplement();
