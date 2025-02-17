@@ -23,6 +23,7 @@ class CompanyImplement
     $stmt->execute(); //Ejecuto la consulta
     $companies = []; //Creo un array vacío para almcenar los objetos de empresas
     
+    // Recorre los resultados y crea objetos Companies
     while ($companyRecord = $stmt->fetch(PDO::FETCH_ASSOC)) {
       $company = new Companies(
         $companyRecord['id'],
